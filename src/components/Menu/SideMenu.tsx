@@ -4,7 +4,7 @@ import { RowBetween, RowFixed } from '../Row'
 import { TYPE, ExternalLink, BlankInternalLink } from '../../theme'
 import { AutoColumn } from '../Column'
 import { ButtonBasic } from '../Button'
-import { GitHub, Code, HelpCircle, ChevronLeft, X } from 'react-feather'
+import { GitHub, ChevronLeft } from 'react-feather'
 import '../../theme/extraFonts.css'
 import MenuBG from '../../assets/images/menu-bg.png'
 import Logo from '../../assets/images/sybil_logo.png'
@@ -87,7 +87,7 @@ export default function SideMenu() {
           <BlankInternalLink to="/">
             <RowFixed style={{ gap: '8px' }}>
               <SybilLogo />
-              <SybilWorkmark>sybil</SybilWorkmark>
+              <SybilWorkmark>web startkit</SybilWorkmark>
             </RowFixed>
           </BlankInternalLink>
           <ExternalLink href="https://github.com/Uniswap/sybil-list">
@@ -100,7 +100,7 @@ export default function SideMenu() {
           <span style={{ width: '30px' }}>
             <SybilLogo style={{ marginBottom: '8px' }} />
             <FlippedText>
-              <SybilWorkmark>sybil</SybilWorkmark>
+              <SybilWorkmark>web3 startkit</SybilWorkmark>
             </FlippedText>
           </span>
         )}
@@ -109,7 +109,7 @@ export default function SideMenu() {
             <BlankInternalLink style={{ color: '#08052C' }} to="/">
               <RowFixed style={{ gap: '8px' }}>
                 <SybilLogo />
-                <SybilWorkmark>sybil</SybilWorkmark>
+                <SybilWorkmark>web3 startkit</SybilWorkmark>
               </RowFixed>
             </BlankInternalLink>
             <ButtonBasic
@@ -124,109 +124,24 @@ export default function SideMenu() {
           <AutoColumn gap="3rem">
             <AutoColumn gap="1rem">
               <Haptik fontSize="36px" style={{ marginBottom: '1rem', fontSize: '36px', lineHeight: '115%' }}>
-                An Ethereum Governance Tool.
+                The Web3/dApp Startkit.
               </Haptik>
               <TYPE.black style={{ lineHeight: '125%', fontWeight: 400 }}>
-                Sybil is a governance tool for discovering delegates. Sybil maps on-chain addresses to digital
-                identities to maintain a list of delegates.
+                This is a startkit tool for quick starting a new dApp.
               </TYPE.black>
               <TYPE.black style={{ lineHeight: '125%', fontWeight: 400 }}>
-                Sybil can support many governance systems. Feel free to
-                <ExternalLink href="https://github.com/Uniswap/sybil-interface/issues/new?assignees=&labels=&template=new-protocol.md&title=">
+                It can also support BSC/HECO. Feel free to
+                <ExternalLink href="https://docs.binance.org/smart-chain/developer/rpc.html#mainnetchainid-56">
                   {' '}
-                  add others
+                  try others
                 </ExternalLink>
                 .
               </TYPE.black>
             </AutoColumn>
-            <AutoColumn gap="1rem">
-              <ButtonBasic
-                as={ExternalLink}
-                href="https://github.com/Uniswap/sybil-list"
-                style={{ backgroundColor: 'rgba(255,255,255,0.4)', color: '#000', gap: 12 }}
-              >
-                <GitHub size={20} />
-                <TYPE.black style={{ lineHeight: '125%', fontWeight: 500 }}> Documentation</TYPE.black>
-              </ButtonBasic>
-              <ButtonBasic
-                onClick={() => setfaqOpen(!faqOpen)}
-                href="https://github.com/Uniswap/sybil-list"
-                style={{ backgroundColor: 'rgba(255,255,255,0.4)', color: '#000', gap: 12 }}
-              >
-                <HelpCircle size={20} />
-                <TYPE.black style={{ lineHeight: '125%', fontWeight: 500 }}>
-                  Help and Info {faqOpen && '(close)'}
-                </TYPE.black>
-              </ButtonBasic>
-            </AutoColumn>
           </AutoColumn>
         )}
-        {open && !faqOpen ? (
-          <AutoColumn gap="1rem" style={{ justifySelf: 'flex-end' }}>
-            <TYPE.black style={{ lineHeight: '125%', fontWeight: 400, fontSize: '12px' }}>
-              A{' '}
-              <ExternalLink style={{ color: '#ff007a' }} href="https://uniswap.org/">
-                Uniswap
-              </ExternalLink>{' '}
-              Project
-            </TYPE.black>
-          </AutoColumn>
-        ) : !faqOpen ? (
-          <AutoColumn gap="1rem" style={{ justifySelf: 'flex-end', marginTop: '1rem' }}>
-            <Code size={20} />
-            <GitHub size={20} />
-            <HelpCircle size={20} />
-          </AutoColumn>
-        ) : (
-          <RowBetween>
-            <ButtonBasic
-              onClick={() => setfaqOpen(!faqOpen)}
-              href="https://GitHub.com/Uniswap/sybil-list"
-              style={{ backgroundColor: 'rgba(255,255,255,0.4)', color: '#000', gap: 12 }}
-            >
-              <HelpCircle size={20} />
-              <TYPE.black style={{ lineHeight: '125%', fontWeight: 400 }}>Help and Info</TYPE.black>
-            </ButtonBasic>
-            <ButtonBasic
-              onClick={() => setfaqOpen(!faqOpen)}
-              style={{ cursor: 'pointer', backgroundColor: 'rgba(255,255,255,0.4)', color: '#000' }}
-            >
-              <X />
-            </ButtonBasic>
-          </RowBetween>
-        )}
+        <AutoColumn gap="3rem"></AutoColumn>
 
-        {faqOpen && (
-          <AutoColumn gap="1.5rem">
-            <AutoColumn gap="0.5rem">
-              <TYPE.body fontWeight={600}>Why build Sybil?</TYPE.body>
-              <TYPE.main>
-                We wanted to support various Ethereum governance initiatives and found it hard to find potential
-                delegates or no easy way to delegate our vote. Sybil is our contribution to help everyone in the
-                ecosystem.
-              </TYPE.main>
-            </AutoColumn>
-            <AutoColumn gap="0.5rem">
-              <TYPE.body fontWeight={600}>I don’t have Twitter, can I use Sybil?</TYPE.body>
-              <TYPE.main>
-                At the moment Sybil is Twitter only, but the architecture allows arbitrary services to act as
-                authentication methods. We are planning to add GitHub soon and feel free to suggest others in our&nbsp;
-                <ExternalLink href="https://github.com/Uniswap/sybil-interface#adding-protocol-support">
-                  repo
-                </ExternalLink>
-                .
-              </TYPE.main>
-            </AutoColumn>
-            <AutoColumn gap="0.5rem">
-              <TYPE.body fontWeight={600}>Is Sybil only for governance?</TYPE.body>
-              <TYPE.main>
-                Since the mapping of wallets to identities is public, you can easily use it to show identities anywhere.
-                In fact, you don’t even have to use Sybil through this interface! Check out the documentation for how to
-                set up a similar system.
-              </TYPE.main>
-            </AutoColumn>
-          </AutoColumn>
-        )}
       </Wrapper>
     </>
   )

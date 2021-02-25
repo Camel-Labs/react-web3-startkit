@@ -11,13 +11,7 @@ import { RedirectWithUpdatedGovernance } from './Governance/redirect'
 import SideMenu from '../components/Menu/SideMenu'
 import TwitterAccountQueryParamReader from '../state/social/TwitterAccountQueryParamReader'
 import Web3Status from '../components/Web3Status'
-import Delegates from './Delegates'
-import Proposals from './Proposals'
-import ProposalDetails from '../components/governance/ProposalDetails'
-import DelegateInfo from './DelegateInfo'
-import DelegateModal from '../components/vote/DelegateModal'
-import { useModalOpen, useToggleModal } from '../state/application/hooks'
-import { ApplicationModal } from '../state/application/actions'
+import NFT from './NFT'
 
 const SiteWrapper = styled.div`
   height: 100vh;
@@ -60,12 +54,6 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
-function TopLevelModals() {
-  const open = useModalOpen(ApplicationModal.DELEGATE)
-  const toggle = useToggleModal(ApplicationModal.DELEGATE)
-  return <DelegateModal isOpen={open} onDismiss={toggle} title="Delegate" />
-}
-
 export default function App() {
   return (
     <Suspense fallback={null}>
@@ -79,13 +67,9 @@ export default function App() {
           <Popups />
           <Polling />
           <Overview />
-          <TopLevelModals />
           <Web3ReactManager>
             <Switch>
-              <Route exact strict path="/delegates/:protocolID" component={Delegates} />
-              <Route exact strict path="/proposals/:protocolID" component={Proposals} />
-              <Route exact strict path="/proposals/:protocolID/:proposalID" component={ProposalDetails} />
-              <Route exact strict path="/delegates/:protocolID/:delegateAddress" component={DelegateInfo} />
+              <Route exact strict path="/nft" component={NFT} />
               <Route path="/" component={RedirectWithUpdatedGovernance} />
             </Switch>
           </Web3ReactManager>
