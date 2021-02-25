@@ -7,7 +7,7 @@ import { ButtonBasic } from '../Button'
 import { GitHub, ChevronLeft } from 'react-feather'
 import '../../theme/extraFonts.css'
 import MenuBG from '../../assets/images/menu-bg.png'
-import Logo from '../../assets/images/sybil_logo.png'
+import Logo from '../../assets/images/logo.png'
 
 const Wrapper = styled.div<{ open: boolean }>`
   height: 100vh;
@@ -87,10 +87,10 @@ export default function SideMenu() {
           <BlankInternalLink to="/">
             <RowFixed style={{ gap: '8px' }}>
               <SybilLogo />
-              <SybilWorkmark>web startkit</SybilWorkmark>
+              <SybilWorkmark>web3 startkit</SybilWorkmark>
             </RowFixed>
           </BlankInternalLink>
-          <ExternalLink href="https://github.com/Uniswap/sybil-list">
+          <ExternalLink href="https://github.com/Camel-Labs/react-web3-startkit">
             <GitHub size={20} style={{ stroke: 'black' }} />
           </ExternalLink>
         </RowBetween>
